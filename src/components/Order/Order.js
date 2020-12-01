@@ -2,8 +2,9 @@ import React from "react";
 import classes from "./Order.css";
 
 const Order = (props) => {
+  console.log(props.ingredients);
   let ingredients = props.ingredients ? (
-    Object.keys(props.ingredients).map((ing) => (
+    Object.keys(props.ingredients).map((ing, key) => (
       <span
         style={{
           margin: "0 8px",
@@ -13,7 +14,7 @@ const Order = (props) => {
           padding: "5px",
         }}
       >
-        {ing} ({props.price})
+        {ing} ({props.ingredients[ing]})
       </span>
     ))
   ) : (

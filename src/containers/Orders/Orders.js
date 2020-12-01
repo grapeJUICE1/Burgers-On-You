@@ -16,6 +16,7 @@ class Orders extends Component {
     try {
       const fetchedOrders = [];
       const res = await axios.get("/orders.json");
+      console.log(res);
       for (let key in res.data) {
         fetchedOrders.push({
           ...res.data[key],
