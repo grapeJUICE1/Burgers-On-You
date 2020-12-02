@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import axios from "../../axios-orders";
 
-import * as burgerBuilderActions from "../../store/actions/index";
+import * as actions from "../../store/actions/index";
 import BuildControls from "../../components/Burger/BuildControls/BuildControls";
 import Burger from "../../components/Burger/Burger";
 import Modal from "../../components/UI/Modal/Modal";
@@ -20,7 +20,12 @@ class BurgerBuilder extends Component {
     this.props.onInitIngredients();
   }
   purchaseHandler = () => {
-    this.setState({ purchasing: true });
+    if (this.state.isAuthenticated) {
+      this.setState({ purchasing: true });
+    } else {
+      this.props.onSetAuthRedirectPath("/checkout");
+      this.props.history.push("/auth");
+    }
   };
   purchaseContinueHandler = async () => {
     this.props.onInitPurchase();
@@ -96,18 +101,20 @@ const mapStateToProps = (state) => {
     ings: state.burgerBuilder.ingredients,
     price: state.burgerBuilder.totalPrice,
     error: state.burgerBuilder.error,
+    isAuthenticated: state.auth.token != null,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onAddIngredient: (ingredientName) =>
-      dispatch(burgerBuilderActions.addIngredient(ingredientName)),
+      dispatch(actions.addIngredient(ingredientName)),
     onRemoveIngredient: (ingredientName) =>
-      dispatch(burgerBuilderActions.removeIngredient(ingredientName)),
-    onInitIngredients: (ingredientName) =>
-      dispatch(burgerBuilderActions.initIngredient()),
-    onInitPurchase: () => dispatch(burgerBuilderActions.purchaseInit()),
+      dispatch(actions.removeIngredient(ingredientName)),
+    onInitIngredients: (ingredientName) => dispatch(actions.initIngredient()),
+    onInitPurchase: () => dispatch(actions.purchaseInit()),
+    onSetAuthRedirectPath: (path) =>
+      dispatch(actions.setAuthRedirectPath(path)),
   };
 };
 
