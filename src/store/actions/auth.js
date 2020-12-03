@@ -58,11 +58,9 @@ export const auth = (email, password, isSignup) => {
       localStorage.setItem("expirationDate", expirationDate);
       localStorage.setItem("expirationTime", res.data.expiresIn);
       localStorage.setItem("userId", res.data.localId);
-      console.log(res);
       dispatch(authSuccess(res.data));
       dispatch(authTimeOut(+res.data.expiresIn));
     } catch (err) {
-      console.log(err.response.data.error);
       dispatch(authFail(err.response.data.error));
     }
   };
@@ -84,7 +82,6 @@ export const autoLogIn = () => {
       const expirationDate = new Date(localStorage.getItem("expirationDate"));
       const userId = localStorage.getItem("userId");
       if (expirationDate >= new Date()) {
-        console.log(token);
         const authData = {
           idToken: token,
           localId: userId,

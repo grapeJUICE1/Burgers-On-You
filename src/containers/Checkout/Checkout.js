@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { Redirect, Route } from "react-router-dom";
 import CheckoutSummary from "../../components/Order/CheckoutSummmary/CheckoutSummary";
@@ -43,4 +44,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Checkout);
+export default withRouter(connect(mapStateToProps)(Checkout));

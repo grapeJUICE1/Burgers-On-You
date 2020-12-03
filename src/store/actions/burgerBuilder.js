@@ -27,7 +27,7 @@ export const failedToFetchIngredients = () => {
     type: actionTypes.FAILED_TO_FETCH_INGREDIENTS,
   };
 };
-export const initIngredient = () => {
+export const initIngredient = (ingredients) => {
   return async (dispatch) => {
     try {
       const res = await axios.get(
@@ -35,7 +35,6 @@ export const initIngredient = () => {
       );
       dispatch(setIngredients(res.data));
     } catch (err) {
-      console.log(err);
       dispatch(failedToFetchIngredients());
     }
   };

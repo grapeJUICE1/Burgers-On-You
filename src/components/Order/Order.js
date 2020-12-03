@@ -2,7 +2,6 @@ import React from "react";
 import classes from "./Order.css";
 
 const Order = (props) => {
-  console.log(props.ingredients);
   let ingredients = props.ingredients ? (
     Object.keys(props.ingredients).map((ing, key) => (
       <span
@@ -13,6 +12,7 @@ const Order = (props) => {
           border: "1px solid #eee",
           padding: "5px",
         }}
+        key={key}
       >
         {ing} ({props.ingredients[ing]})
       </span>

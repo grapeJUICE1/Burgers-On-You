@@ -6,6 +6,8 @@
     border:1px solid #eee;
     padding:10px;
     box-sizing: border-box;
+    background-color: rgba(82, 181, 234, 0.2);
+    color: #eee;
 }
 .ContactData input{
     display: block ;

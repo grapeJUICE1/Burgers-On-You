@@ -1,14 +1,22 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 import { connect } from "react-redux";
 import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 
 import * as actions from "./store/actions/index";
 import Layout from "./components/Layout/Layout";
-import Auth from "./containers/Auth/Auth";
 import Logout from "./containers/Auth/Logout/Logout";
 import BurgerBuilder from "./containers/BurgerBuilder/BurgerBuilder";
-import Checkout from "./containers/Checkout/Checkout";
-import Orders from "./containers/Orders/Orders";
+import Spinner from "./components/UI/Spinner/Spinner";
+// import Checkout from "./containers/Checkout/Checkout";
+const Checkout = React.lazy(() => {
+  return import("./containers/Checkout/Checkout");
+});
+const Orders = React.lazy(() => {
+  return import("./containers/Orders/Orders");
+});
+const Auth = React.lazy(() => {
+  return import("./containers/Auth/Auth");
+});
 
 class App extends Component {
   componentDidMount() {
@@ -19,9 +27,9 @@ class App extends Component {
     if (this.props.isAuthenticated) {
       routes = (
         <Switch>
-          <Route path="/checkout" component={Checkout} />
-          <Route path="/orders" component={Orders} />
-          <Route path="/auth" component={Auth} />
+          <Route path="/checkout" render={() => <Checkout />} />
+          <Route path="/orders" render={() => <Orders />} />
+          <Route path="/auth" render={() => <Auth />} />
           <Route path="/logout" component={Logout} />
           <Route path="/" component={BurgerBuilder} />
           <Redirect to="/" />
@@ -30,14 +38,17 @@ class App extends Component {
     } else {
       routes = (
         <Switch>
-          <Route path="/checkout" component={Checkout} />
-          <Route path="/auth" component={Auth} />
+          <Route path="/auth" render={() => <Auth />} />
           <Route path="/" component={BurgerBuilder} />
           <Redirect to="/" />
         </Switch>
       );
     }
-    return <Layout>{routes}</Layout>;
+    return (
+      <Layout>
+        <Suspense fallback={<Spinner />}>{routes}</Suspense>
+      </Layout>
+    );
   }
 }
 

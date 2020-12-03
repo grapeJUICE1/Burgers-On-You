@@ -8,6 +8,7 @@ import Button from "../../../components/UI/Button/Button";
 import Input from "../../../components/UI/Input/Input";
 import Spinner from "../../../components/UI/Spinner/Spinner";
 import classes from "./ContactData.css";
+import { updateObj, validate } from "../../../shared/utils";
 
 class ContactData extends Component {
   state = {
@@ -43,7 +44,7 @@ class ContactData extends Component {
       zipCode: {
         elementType: "input",
         elementConfig: {
-          type: "text",
+          type: "number",
           placeholder: "ZIP CODE",
         },
         value: "",
@@ -51,6 +52,7 @@ class ContactData extends Component {
           required: true,
           minLength: 5,
           maxLength: 5,
+          isNumeric: true,
         },
         valid: false,
         touched: false,
@@ -76,6 +78,7 @@ class ContactData extends Component {
         value: "",
         validation: {
           required: true,
+          isEmail: true,
         },
         valid: false,
         touched: false,
@@ -96,30 +99,21 @@ class ContactData extends Component {
     formIsValid: false,
   };
 
-  validate = (val, rule) => {
-    let isValid = true;
-    if (rule.required) {
-      isValid = val.trim() !== "" && isValid;
-    }
-    if (rule.minLength) {
-      isValid = val.length >= rule.minLength && isValid;
-    }
-    if (rule.maxLength) {
-      isValid = val.length <= rule.maxLength && isValid;
-    }
-    return isValid;
-  };
   inputChangeHandler = (evt, id) => {
     let orderFormClone = { ...this.state.orderForm };
-    let orderFormElementClone = { ...orderFormClone[id] };
-    orderFormElementClone.value = evt.target.value;
-    orderFormElementClone.touched = true;
-    orderFormElementClone.valid = this.validate(
-      orderFormElementClone.value,
-      orderFormElementClone.validation
-    );
-    orderFormClone[id] = orderFormElementClone;
-    // for(let)
+    orderFormClone[id] = updateObj(orderFormClone[id], {
+      value: evt.target.value,
+      touched: true,
+      valid: validate(evt.target.value, orderFormClone[id].validation),
+    });
+    const fields = [];
+    for (let field in orderFormClone) {
+      fields.push(orderFormClone[field].valid);
+    }
+    if (!fields.includes(false)) {
+      this.setState({ formIsValid: true });
+    }
+
     this.setState({ orderForm: orderFormClone });
   };
   orderHandler = (evt) => {

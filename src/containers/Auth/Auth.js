@@ -6,6 +6,7 @@ import Input from "../../components/UI/Input/Input";
 import classes from "./Auth.css";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import { Redirect } from "react-router";
+import { updateObj, validate } from "../../shared/utils";
 
 class Auth extends Component {
   state = {
@@ -48,35 +49,23 @@ class Auth extends Component {
       this.props.onSetAuthRedirectPath("/");
   }
 
-  validate = (val, rule) => {
-    let isValid = true;
-    if (rule.required) {
-      isValid = val.trim() !== "" && isValid;
-    }
-    if (rule.minLength) {
-      isValid = val.length >= rule.minLength && isValid;
-    }
-    if (rule.maxLength) {
-      isValid = val.length <= rule.maxLength && isValid;
-    }
-    if (rule.isEmail) {
-      isValid = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
-        val
-      );
-    }
-    return isValid;
-  };
-
   inputChangeHandler = (evt, id) => {
     let authFormClone = { ...this.state.authForm };
-    let authFormElementClone = { ...authFormClone[id] };
-    authFormElementClone.value = evt.target.value;
-    authFormElementClone.touched = true;
-    authFormElementClone.valid = this.validate(
-      authFormElementClone.value,
-      authFormElementClone.validation
-    );
-    authFormClone[id] = authFormElementClone;
+
+    authFormClone[id] = updateObj(authFormClone[id], {
+      value: evt.target.value,
+      touched: true,
+      valid: validate(evt.target.value, authFormClone[id].validation),
+    });
+    const fields = [];
+    for (let field in authFormClone) {
+      fields.push(authFormClone[field].valid);
+    }
+    console.log(fields);
+
+    if (!fields.includes(false)) {
+      this.setState({ formIsValid: true });
+    }
     this.setState({ authForm: authFormClone });
   };
 
@@ -127,9 +116,16 @@ class Auth extends Component {
               touched={el.config.touched}
             />
           ))}
-          <Button type="Success" disabled={!this.state.formIsValid}>
-            {this.state.isSignUp ? "Sign Up" : "Login"}
-          </Button>
+
+          {this.state.isSignUp ? (
+            <Button type="Success" disabled={!this.state.formIsValid}>
+              Sign Up
+            </Button>
+          ) : (
+            <Button type="Success" disabled={!this.state.formIsValid}>
+              Log In
+            </Button>
+          )}
         </form>
         <Button type="Danger" clickHandler={this.authModeChangeHandler}>
           Switch to {this.state.isSignUp ? "Login" : "Sign Up"}
