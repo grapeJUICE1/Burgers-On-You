@@ -81,33 +81,66 @@
   }
   
 
-.Meat {
-    width: 80%;
-    height: 8%;
-    background: linear-gradient(#7f3608, #702e05);
-    margin: 2% auto;
-    border-radius: 15px;
-}
+
 
 .Cheese {
     width: 90%;
     height: 4.5%;
     margin: 2% auto;
-    background: linear-gradient(#f4d004, #d6bb22);
+    background: linear-gradient(rgb(236, 209, 58), #ffa600);
     border-radius: 20px;
 }
 
-.Salad {
-    width: 85%;
-    height: 7%;
-    margin: 2% auto;
-    background: linear-gradient(#228c1d, #91ce50);
-    border-radius: 20px;
-}
+
 
 .Bacon {
     width: 80%;
     height: 3%;
-    background: linear-gradient(#bf3813, #c45e38);
+    background: linear-gradient(#F65656, #b41f1f);
     margin: 2% auto;
+}
+
+.lettuce {
+  width: 90%;
+  height: 5%;
+  background: linear-gradient(#94cf15, #BFD58E);
+  margin: 2% auto;
+  border-radius: 10px;
+}
+.onion {
+    width: 90%;
+    height: 5%;
+    background: linear-gradient(#a476cf, #5f3c80);
+    margin: 2% auto;
+    border-radius: 10px;
+}
+.tomato {
+    width: 90%;
+    height: 5%;
+    background: linear-gradient(#ff6347, #d24027);
+    margin: 2% auto;
+    border-radius: 10px;
+}
+
+.beef {
+  width: 82%;
+  height: 8%;
+  margin: 2% auto;
+  background: linear-gradient(#7f3608, #450101);
+  border-radius: 15px;
+}
+.chicken {
+    width: 82%;
+    height: 8%;
+    margin: 2% auto;
+    background: linear-gradient(#ca6e36, #E5CB7A);
+    border-radius: 15px;
+  }
+.sauce{
+    width: 80%;
+  height: 3%;
+  margin: 2% auto;
+  background: linear-gradient(#873210, #be1105);
+-webkit-clip-path: polygon(27% 17%, 61% 0, 100% 0, 100% 89%, 71% 40%, 51% 100%, 0 59%, 0 7%);
+        clip-path: polygon(27% 17%, 61% 0, 100% 0, 100% 89%, 71% 40%, 51% 100%, 0 59%, 0 7%);
 }

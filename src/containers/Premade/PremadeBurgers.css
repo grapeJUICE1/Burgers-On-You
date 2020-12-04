@@ -1,0 +1,18 @@
+.ProceedButton{
+    border-radius: 0;
+    background-color: rgba(212, 25, 66, 0.889);
+    border: 1px solid #fff;
+    font-size: 1.2rem;
+    padding: 10px;
+    color:rgba(0, 0, 0);
+    transition: all .2s;
+    margin-bottom: 8%;
+}
+.ProceedButton:hover{
+    background-color: rgba(236, 69, 105, 0.889);
+}
+
+.proceedButtonDiv{
+    text-align: center;
+    margin-bottom: 8%;
+}

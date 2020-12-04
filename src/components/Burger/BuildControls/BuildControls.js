@@ -5,16 +5,20 @@ import BuildControl from "./BuildControl/BuildControl";
 import { connect } from "react-redux";
 
 const controls = [
-  { label: "Salad", type: "salad" },
-  { label: "Bacon", type: "bacon" },
+  { label: "Chicken Patty", type: "chicken" },
+  { label: "Beef Patty", type: "beef" },
+  { label: "Beef Bacon", type: "bacon" },
   { label: "Cheese", type: "cheese" },
-  { label: "Meat", type: "meat" },
+  { label: "Sauce", type: "sauce" },
+  { label: "Lettuce", type: "lettuce" },
+  { label: "Tomato", type: "tomato" },
+  { label: "Onion", type: "onion" },
 ];
 const BuildControls = (props) => {
   return (
     <div className={classes.BuildControls}>
       <p>
-        Current Price <strong>{props.price.toFixed(2)}</strong>
+        Current Price <strong>{`$${props.price}`}</strong>
       </p>
       {controls.map((ctr) => (
         <BuildControl

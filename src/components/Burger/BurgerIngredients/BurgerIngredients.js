@@ -16,14 +16,26 @@ const BurgerIngredients = ({ type }) => {
         </div>
       );
       break;
-    case "meat":
-      ingredient = <div className={classes.Meat}></div>;
+    case "chicken":
+      ingredient = <div className={classes.chicken}></div>;
+      break;
+    case "beef":
+      ingredient = <div className={classes.beef}></div>;
       break;
     case "cheese":
       ingredient = <div className={classes.Cheese}></div>;
       break;
-    case "salad":
-      ingredient = <div className={classes.Salad}></div>;
+    case "lettuce":
+      ingredient = <div className={classes.lettuce}></div>;
+      break;
+    case "onion":
+      ingredient = <div className={classes.onion}></div>;
+      break;
+    case "tomato":
+      ingredient = <div className={classes.tomato}></div>;
+      break;
+    case "sauce":
+      ingredient = <div className={classes.sauce}></div>;
       break;
     case "bacon":
       ingredient = <div className={classes.Bacon}></div>;

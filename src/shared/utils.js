@@ -28,3 +28,23 @@ export const validate = (val, rule) => {
   }
   return isValid;
 };
+
+export const getBurgerPrice = (ings) => {
+  let price = 2;
+  const INGREDIENT_PRICES = {
+    lettuce: 0.3,
+    tomato: 0.2,
+    onion: 0.2,
+    cheese: 0.5,
+    beef: 1.7,
+    chicken: 1.2,
+    sauce: 0.8,
+    bacon: 1.8,
+  };
+
+  for (let ing in ings) {
+    price += INGREDIENT_PRICES[ing] * ings[ing];
+  }
+
+  return price.toFixed(2);
+};

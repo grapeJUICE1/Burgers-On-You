@@ -1,44 +1,38 @@
 import * as actionTypes from "../actions/actionTypes";
-import { updateObj } from "../../shared/utils";
+import { updateObj, getBurgerPrice } from "../../shared/utils";
 
 const initialState = {
   ingredients: null,
-  totalPrice: 2,
+  totalPrice: 2.0,
   error: false,
   building: false,
 };
 
-const INGREDIENT_PRICES = {
-  salad: 0.2,
-  cheese: 0.5,
-  meat: 1.7,
-  bacon: 1.5,
-};
-
 const addIngredient = (state, action) => {
+  const updatedIngredients = updateObj(state.ingredients, {
+    [action.ingredientName]: state.ingredients[action.ingredientName] + 1,
+  });
   return updateObj(state, {
-    ingredients: updateObj(state.ingredients, {
-      [action.ingredientName]: state.ingredients[action.ingredientName] + 1,
-    }),
-    totalPrice: state.totalPrice + INGREDIENT_PRICES[action.ingredientName],
+    ingredients: updatedIngredients,
+    totalPrice: getBurgerPrice(updatedIngredients),
     building: true,
   });
 };
 const removeIngredient = (state, action) => {
+  const updatedIngredients = updateObj(state.ingredients, {
+    [action.ingredientName]: state.ingredients[action.ingredientName] - 1,
+  });
   return updateObj(state, {
-    ingredients: updateObj(state.ingredients, {
-      [action.ingredientName]: state.ingredients[action.ingredientName] - 1,
-    }),
-    totalPrice: state.totalPrice - INGREDIENT_PRICES[action.ingredientName],
+    ingredients: updatedIngredients,
+    totalPrice: getBurgerPrice(updatedIngredients),
     building: true,
   });
 };
 
 const setIngredients = (state, action) => {
-  if (state.ingredients !== null) return state;
   return updateObj(state, {
     ingredients: action.ingredients,
-    totalPrice: 2,
+    totalPrice: action.price ? action.price : 2,
     error: false,
     building: false,
   });

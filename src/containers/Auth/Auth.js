@@ -61,7 +61,6 @@ class Auth extends Component {
     for (let field in authFormClone) {
       fields.push(authFormClone[field].valid);
     }
-    console.log(fields);
 
     if (!fields.includes(false)) {
       this.setState({ formIsValid: true });

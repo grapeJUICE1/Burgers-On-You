@@ -7,15 +7,21 @@ import Layout from "./components/Layout/Layout";
 import Logout from "./containers/Auth/Logout/Logout";
 import BurgerBuilder from "./containers/BurgerBuilder/BurgerBuilder";
 import Spinner from "./components/UI/Spinner/Spinner";
-// import Checkout from "./containers/Checkout/Checkout";
+
 const Checkout = React.lazy(() => {
   return import("./containers/Checkout/Checkout");
 });
+
 const Orders = React.lazy(() => {
   return import("./containers/Orders/Orders");
 });
+
 const Auth = React.lazy(() => {
   return import("./containers/Auth/Auth");
+});
+
+const PremadeBurgers = React.lazy(() => {
+  return import("./containers/Premade/PremadeBurgers");
 });
 
 class App extends Component {
@@ -29,6 +35,7 @@ class App extends Component {
         <Switch>
           <Route path="/checkout" render={() => <Checkout />} />
           <Route path="/orders" render={() => <Orders />} />
+          <Route path="/premade" render={() => <PremadeBurgers />} />
           <Route path="/auth" render={() => <Auth />} />
           <Route path="/logout" component={Logout} />
           <Route path="/" component={BurgerBuilder} />
@@ -38,6 +45,7 @@ class App extends Component {
     } else {
       routes = (
         <Switch>
+          <Route path="/premade" render={() => <PremadeBurgers />} />
           <Route path="/auth" render={() => <Auth />} />
           <Route path="/" component={BurgerBuilder} />
           <Redirect to="/" />

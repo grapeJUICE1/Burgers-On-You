@@ -31,11 +31,10 @@ const withErrorHandler = (WrappedComponent, axios) => {
     render() {
       return (
         <Fragment>
-          {this.state.error ? (
-            <Modal show={this.state.error} cancelOrder={this.closeHandler}>
-              {this.state.error.message}
-            </Modal>
-          ) : null}
+          <Modal show={this.state.error} cancelOrder={this.closeHandler}>
+            {this.state.error ? this.state.error.message : null}
+          </Modal>
+
           <WrappedComponent {...this.props} />
         </Fragment>
       );
