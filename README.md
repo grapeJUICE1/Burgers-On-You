@@ -16,7 +16,9 @@ npm start
 
 This will start the development server at port 3000
 
-If you want to use your own database then go to **axios-orders.js** on **src** folder in root folder and change baseUrl there ... This project uses firebase realtime database...
+If you want to use your own database then go to **axios-orders.js** on **src** folder in root folder and change baseUrl there ... Or more precisely , this file : https://github.com/grapeJUICE1/burgers-on-you/blob/master/src/axios-orders.js...
+
+This project uses firebase realtime database...
 
 # Features
 * You basically build a burger and order it..
@@ -25,3 +27,20 @@ If you want to use your own database then go to **axios-orders.js** on **src** f
 * authentication with firebase auth
 
 # Screenshots
+
+![GIF showing core parts of the app](https://github.com/grapeJUICE1/burgers-on-you/blob/master/screenshots/main.gif?raw=true)
+
+#### Home page
+![home page of the app](https://github.com/grapeJUICE1/burgers-on-you/blob/master/screenshots/home.PNG?raw=true)
+
+#### orders page
+![orders page of the app](https://github.com/grapeJUICE1/burgers-on-you/blob/master/screenshots/orders.PNG?raw=true)
+
+#### checkout page
+![checkout page of the app](https://github.com/grapeJUICE1/burgers-on-you/blob/master/screenshots/checkout.PNG?raw=true)
+
+#### login/signup page
+![login/signup page of the app](https://github.com/grapeJUICE1/burgers-on-you/blob/master/screenshots/auth.PNG?raw=true)
+
+#### readymade burgers page
+![readymade burgers page of the app](https://github.com/grapeJUICE1/burgers-on-you/blob/master/screenshots/premad.PNG?raw=true)
