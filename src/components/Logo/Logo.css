@@ -1,11 +1,17 @@
 .Logo{
     background-color: #404b69;
     padding: 8px;
-    height: 80%;
+    height: 100%;
     box-sizing: border-box;
     border-radius: 5px;
 }
 
+@media(min-width:559px) and (max-width:600px){
+    .Logo{
+        height: 80%;
+    }
+       
+}
 .Logo img{
     height: 100%;
 }

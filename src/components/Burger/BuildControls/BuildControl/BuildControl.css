@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 5px 0;
+    margin: 10px 0;
 }
 
 .BuildControl button {
@@ -54,4 +54,38 @@
 .BuildControl .More:hover,.BuildControl .More:active {
     background-color: #99703F;
     color: white;
+}
+
+@media(max-width:350px){
+    .BuildControl{
+        width: 80%;
+    }
+    .BuildControl button {
+        padding: 3px;
+        margin: 0 3px;
+        width: 60px;
+    }
+    .Label {
+        padding: 7px;
+        width: 60px;
+        font-size: smaller;
+    }
+}
+@media(max-width:245px){
+    .BuildControl{
+        width: 100%;
+        /* flex-direction: column; */
+    }
+    .BuildControl button {
+        padding: 3px;
+        margin: 0 3px;
+        width: 60px;
+
+    }
+    .Label {
+        flex-direction: column;
+        padding: 7px;
+        width: 60px;
+        font-size: smaller;
+    }
 }

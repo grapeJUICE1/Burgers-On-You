@@ -20,6 +20,8 @@ class Orders extends Component {
             key={order.id}
             ingredients={order.ingredients}
             price={(+order.price).toFixed(2)}
+            status={order.status}
+            isDelivered={order.delivered}
           />
         );
       });
@@ -29,7 +31,17 @@ class Orders extends Component {
     if (this.props.error) {
       orders = <p>Can't Load your orders</p>;
     }
-    return <div>{orders}</div>;
+    return (
+      <div>
+        {orders ? (
+          orders
+        ) : (
+          <h1 style={{ color: "#eee", textAlign: "center" }}>
+            No orders made yet... Start By ordering a burger
+          </h1>
+        )}
+      </div>
+    );
   }
 }
 

@@ -40,6 +40,12 @@ const BurgerIngredients = ({ type }) => {
     case "bacon":
       ingredient = <div className={classes.Bacon}></div>;
       break;
+    case "yogurt-sauce":
+      ingredient = <div className={classes.yogurt_sauce}></div>;
+      break;
+    case "veg-patty":
+      ingredient = <div className={classes.veg_patty}></div>;
+      break;
     default:
       ingredient = null;
   }

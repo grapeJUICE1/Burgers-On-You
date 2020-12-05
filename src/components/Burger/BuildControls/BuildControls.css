@@ -18,6 +18,7 @@
     font-size: 1.2em;
     padding: 15px 30px;
     margin-bottom:15px;
+    margin-top: 20px;
     box-shadow: 2px 2px 2px #966909;
 }
 
@@ -38,6 +39,7 @@
     -webkit-animation: enable 0.3s linear;
             animation: enable 0.3s linear;
 }
+
 
 @-webkit-keyframes enable {
     0% {

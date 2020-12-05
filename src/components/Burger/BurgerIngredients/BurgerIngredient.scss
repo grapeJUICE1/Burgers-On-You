@@ -129,6 +129,13 @@
   background: linear-gradient(#7f3608, #450101);
   border-radius: 15px;
 }
+.veg_patty {
+  width: 82%;
+  height: 8%;
+  margin: 2% auto;
+  background: linear-gradient(	#b86c4f, #924141);
+  border-radius: 15px;
+}
 .chicken {
     width: 82%;
     height: 8%;
@@ -141,6 +148,14 @@
   height: 3%;
   margin: 2% auto;
   background: linear-gradient(#873210, #be1105);
+-webkit-clip-path: polygon(27% 17%, 61% 0, 100% 0, 100% 89%, 71% 40%, 51% 100%, 0 59%, 0 7%);
+        clip-path: polygon(27% 17%, 61% 0, 100% 0, 100% 89%, 71% 40%, 51% 100%, 0 59%, 0 7%);
+}
+.yogurt_sauce{
+  width: 80%;
+  height: 3%;
+  margin: 2% auto;
+  background: linear-gradient(#ffffff, #bae58b);
 -webkit-clip-path: polygon(27% 17%, 61% 0, 100% 0, 100% 89%, 71% 40%, 51% 100%, 0 59%, 0 7%);
         clip-path: polygon(27% 17%, 61% 0, 100% 0, 100% 89%, 71% 40%, 51% 100%, 0 59%, 0 7%);
 }

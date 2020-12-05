@@ -34,8 +34,23 @@ const Order = (props) => {
     <div className={classes.Order}>
       <p>Ingredients: {ingredients}</p>
       <p>
-        Price: <strong>USD {props.price}</strong>
+        Status : &nbsp; &nbsp;
+        <strong>{props.isDelivered ? "Delivered" : props.status}</strong>
       </p>
+      <p>
+        Price : &nbsp; &nbsp;&nbsp;&nbsp;<strong>USD {props.price}</strong>
+      </p>
+      {props.isDelivered ? (
+        <p style={{ color: "green", textAlign: "center" }}>
+          {" "}
+          <strong>The Order Was Delivered</strong>
+        </p>
+      ) : (
+        <p style={{ color: "red", textAlign: "center" }}>
+          {" "}
+          <strong>The Order is not Delivered yet</strong>
+        </p>
+      )}
     </div>
   );
 };

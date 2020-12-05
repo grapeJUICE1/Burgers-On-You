@@ -1,11 +1,14 @@
 import React from "react";
-import Button from "../../../UI/Button/Button";
+
+import classes from "./Toggle.css";
 
 const Toggle = (props) => {
   return (
-    <Button type="Success" clickHandler={props.clickHandler}>
-      Toggle
-    </Button>
+    <div onClick={props.clickHandler} className={classes.Toggle}>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   );
 };
 

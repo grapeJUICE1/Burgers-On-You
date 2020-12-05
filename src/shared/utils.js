@@ -40,6 +40,8 @@ export const getBurgerPrice = (ings) => {
     chicken: 1.2,
     sauce: 0.8,
     bacon: 1.8,
+    "veg-patty": 1,
+    "yogurt-sauce": 0.8,
   };
 
   for (let ing in ings) {

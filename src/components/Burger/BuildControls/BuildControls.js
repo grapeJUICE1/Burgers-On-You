@@ -9,10 +9,12 @@ const controls = [
   { label: "Beef Patty", type: "beef" },
   { label: "Beef Bacon", type: "bacon" },
   { label: "Cheese", type: "cheese" },
-  { label: "Sauce", type: "sauce" },
+  { label: "Regular Sauce", type: "sauce" },
   { label: "Lettuce", type: "lettuce" },
   { label: "Tomato", type: "tomato" },
   { label: "Onion", type: "onion" },
+  { label: "Yogurt Sauce", type: "yogurt-sauce" },
+  { label: "Veg Patty", type: "veg-patty" },
 ];
 const BuildControls = (props) => {
   return (
