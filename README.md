@@ -13,7 +13,7 @@ Download this repository and then on the root folder run
 ```bash
 npm install
 ```
-This will install all dependencies ... then run ...
+This will install all dependencies ... then run ....
 
 ```bash
 npm start
