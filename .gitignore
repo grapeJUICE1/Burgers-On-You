@@ -1,10 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Firebase Hosting
-/.firebase
-.firebaserc
-firebase-debug.log
-
 # dependencies
 /node_modules
 /.pnp
@@ -22,6 +17,14 @@ firebase-debug.log
 .env.development.local
 .env.test.local
 .env.production.local
+
+**/.firebaserc
+
+### Firebase Patch ###
+.runtimeconfig.json
+/.firebase
+firebase.json
+
 
 npm-debug.log*
 yarn-debug.log*
