@@ -2,13 +2,18 @@
     <h1>Burgers On You<h1>
 </div>
 
-Burgers on you is a food ordering application mostly based on burgers made with react and firebase
+Burgers on you is a food ordering application mostly based on burgers made with react , redux and firebase
 
-The app is deployed at https://burgers-on-you.web.app/
+The app is deployed at https://burgers-on-you.web.app
 
 # Running the project locally
 
 Download this repository and then on the root folder run
+
+```bash
+npm install
+```
+This will install all dependencies ... then run ...
 
 ```bash
 npm start
