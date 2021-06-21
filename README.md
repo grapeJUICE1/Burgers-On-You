@@ -2,7 +2,7 @@
     <h1>Burgers On You<h1>
 </div>
 
-Burgers on you is a food ordering application mostly based on burgers made with react , redux and firebase
+Burgers on you is a food ordering application mostly based on burgers made with react , redux and firebase ..
 
 The app is deployed at https://burgers-on-you.web.app
 
