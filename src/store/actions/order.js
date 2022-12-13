@@ -6,6 +6,7 @@ export const purchaseBurgerSuccess = (id, orderData) => {
     type: actionTypes.PURCHASE_BURGER_SUCCESS,
     orderId: id,
     orderData,
+    message: "Thank you, your order has been placed"
   };
 };
 export const purchaseBurgerFail = (error) => {
